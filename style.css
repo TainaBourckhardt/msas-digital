@@ -1,0 +1,278 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f8fafc;
+    margin: 0;
+    min-height: 100vh;
+    color: #293241;
+}
+header {
+    width: 100vw;
+    background: #fff;
+    border-bottom: 1px solid #ececec;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 8px 0 8px 0;
+    z-index: 2;
+    text-align: left;
+}
+.badge-abtms {
+    display: inline-flex;
+    align-items: center;
+    background-color: #F2C94C;
+    color: #735100;
+    padding: 2px 13px 2px 9px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.95em;
+    box-shadow: 0 1px 3px rgba(100,80,10,0.08);
+    margin-left: 18px;
+    vertical-align: middle;
+}
+
+main {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 70px 0 30px 0;
+}
+section, form {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 10px 18px rgba(120,120,150,0.04);
+    margin: 28px 0;
+    padding: 26px 28px 36px 28px;
+}
+.hidden { display: none; }
+.visible { display: block; }
+
+h1, h2 {
+    text-align: center;
+    margin: 0;
+}
+.info-box {
+    background: #eaf1fc;
+    border-left: 4px solid #4975db;
+    padding: 11px 18px;
+    border-radius: 8px;
+    margin: 20px 0 18px 0;
+    color: #244a88;
+    font-size: 1.05em;
+}
+
+.msas-step {
+    margin: 0;
+    padding: 0 0 22px 0;
+    border: none;
+    background: none;
+    box-shadow: none;
+}
+.step-title {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-bottom: 7px;
+    margin-top:10px;
+}
+.grupo-icone {
+    font-size: 2.4em !important;
+    color: #3469d5;
+    margin-right: 5px;
+}
+.step-desc {
+    font-size: 1.04em;
+    color: #456;
+    margin-bottom: 22px;
+    margin-left: .2em;
+}
+.symptoms-list { margin-bottom:12px; }
+
+.sintoma-box {
+    border-bottom: 1px solid #e3e3ef;
+    padding: 13px 0 12px 0;
+    margin-bottom: 7px;
+    position: relative;
+}
+.sintoma-nome {
+    font-weight: 500;
+    font-size: 1.07em;
+    margin-right: 14px;
+}
+.sim-nao {
+    margin-left: 10px;
+}
+.sim-nao label {
+    margin-right: 13px;
+    font-weight: 400;
+}
+
+.sintoma-detalhes { margin-top: 10px; }
+.freq-label, .int-label, .inc-label {
+    display: block;
+    font-size: 0.97em;
+    margin-bottom: 5px;
+    color: #345;
+    margin-top: 6px;
+}
+
+/* FAIXA FREQUÊNCIA (Mini barra/inputs) */
+.freq-range {
+    background: #f3f4fa;
+    border-radius: 7px;
+    padding: 6px 9px;
+    display: flex;
+    gap: 11px;
+    align-items: center;
+    margin-bottom:10px;
+}
+.freq-btn {
+    background: #e3eaef;
+    border: 1px solid #b7c4de;
+    color: #223;
+    border-radius: 5px;
+    min-width: 32px;
+    padding: 4px 6px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.19s;
+    font-family: inherit;
+}
+.freq-btn.selected, .freq-btn:hover {
+    background: #4481e3;
+    color: #fff;
+    border-color: #2f69c8;
+    box-shadow: 0 2px 8px #98b9f742;
+    font-weight: 600;
+}
+
+/* FAIXA INTENSIDADE (Barra colorida) */
+.slider-box {
+    margin: 8px 0 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.slider-labels {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    font-size: 0.91em;
+    color: #345;
+    margin-top: 4px;
+}
+input[type=range] {
+    width: 180px;
+    appearance: none;
+    height: 8px;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #90caf9 0%, #fbc02d 50%, #e53935 100%);
+    outline: none;
+    margin: 0 5px;
+}
+input[type=range]::-webkit-slider-thumb {
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #3f51b5;
+    cursor: pointer;
+    box-shadow: 0 2px 7px rgba(70,60,110,0.08);
+    border: 2px solid #ddd;
+    transition: background 0.2s;
+}
+input[type=range]:focus::-webkit-slider-thumb {
+    background: #20356e;
+}
+input[type=range]::-moz-range-thumb {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #3f51b5;
+    border: 2px solid #ddd;
+    cursor: pointer;
+}
+
+/* INCôMODO: carinhas */
+.inc-faces {
+    display: flex;
+    gap: 11px;
+    align-items: center;
+    background: #f7f6fd;
+    border-radius: 7px;
+    padding: 7px 10px;
+    margin-top: 3px;
+    margin-bottom: 7px;
+}
+.inc-face {
+    font-size: 1.6em;
+    cursor: pointer;
+    filter: grayscale(0.5);
+    opacity: 0.7;
+    padding: 1px 2px;
+    border-radius: 7px;
+    transition: filter 0.16s, opacity 0.12s, background 0.15s;
+    border: 2px solid transparent;
+}
+.inc-face.selected,
+.inc-face:hover {
+    background: #ffe1e1;
+    filter: grayscale(0);
+    opacity: 1;
+    box-shadow: 0 2px 8px #e5a7a750;
+    border-color: #d63e50;
+}
+.inc-label { margin-bottom:1px; }
+
+.nav-controls {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    margin: 27px 0 0 0;
+}
+button, input[type=submit] {
+    font-family: inherit;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    color: #fff;
+    background: #4975db;
+    font-size: 1.07em;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    transition: background 0.18s;
+}
+button:hover, input[type=submit]:hover { background: #2a539d; }
+#prev-step { background: #bbbbca; color: #25292f; font-weight: 500;}
+#prev-step:hover { background: #9196a8;}
+#finish-btn { background: #2bc058;}
+#finish-btn:hover { background: #1e963f;}
+
+input[type=text] {
+    font-size: 1em;
+    border: 1px solid #bbc;
+    border-radius: 5px;
+    padding: 7px 8px;
+    margin: 3px 0 9px 0;
+    background: #f9fbff;
+    width: 99%;
+}
+.outros-sintomas-box { margin: 8px 0 19px 0; }
+
+.result-title { text-align: center;}
+#result-content {
+    padding: 18px 10px 13px 10px;
+    background: #f6f9fd;
+    border-radius: 13px;
+    color: #293241;
+    margin-bottom: 23px;
+    margin-top: 20px;
+    min-height: 60px;
+    font-size: 1.15em;
+}
+@media (max-width: 700px) {
+    main { padding-top: 54px; }
+    section, form {
+        padding: 14px 6px 24px 6px;
+        border-radius: 9px;
+    }
+}

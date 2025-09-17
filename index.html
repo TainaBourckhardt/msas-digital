@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>MSAS-BR Digital — Autoavaliação de Sintomas Oncológicos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <!-- Flaticon (interface icons): -->
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css">
+</head>
+<body>
+    <header>
+        <div class="badge-abtms" aria-label="Demonstração premiada pela ABTMS">
+            🏆 DEMO Prêmio ABTMS
+        </div>
+    </header>
+    <main>
+        <!-- Boas-vindas -->
+        <section id="welcome-screen" class="visible">
+            <h1>Autoavaliação de Sintomas - MSAS-BR Digital</h1>
+            <div class="info-box">
+                Esta é uma ferramenta digital de autoavaliação de sintomas, desenvolvida como parte de uma plataforma de telemedicina voltada para pacientes oncológicos. Ela foi baseada na Memorial Symptom Assessment Scale (MSAS), um instrumento validado para o cuidado em oncologia (Portenoy, Thaler et al., 1994).
+                <br><br>
+                ⚠️ Atenção: Esta versão foi criada exclusivamente para fins demonstrativos, integrando a apresentação do projeto inscrito no Prêmio Prof. György Miklós Böhm, promovido pela Associação Brasileira de Telemedicina e Telessaúde, na categoria Iniciação Científica.
+                <br><br>
+                Esta ferramenta não substitui avaliação médica nem acompanhamento profissional.
+            </div>
+            <button id="start-btn">Iniciar Avaliação</button>
+        </section>
+
+        <!-- ETAPAS POR GRUPO (telas múltiplas) -->
+        <form id="msas-form" class="hidden">
+            <!-- Sintomas Físicos Gerais -->
+            <section class="msas-step" data-step="0">
+                <div class="step-title">
+                    <i class="fi fi-rr-treatment grupo-icone"></i>
+                    <h2>Sintomas Físicos Gerais</h2>
+                </div>
+                <div class="step-desc">
+                    Marque se você percebeu algum destes sintomas na última semana. Caso SIM, ajuste a frequência, intensidade e incômodo.
+                </div>
+                <div class="symptoms-list">
+                    <!-- Os inputs serão inseridos via JS -->
+                </div>
+            </section>
+
+            <!-- Sintomas Gastrointestinais -->
+            <section class="msas-step hidden" data-step="1">
+                <div class="step-title">
+                    <i class="fi fi-rr-stomach grupo-icone"></i>
+                    <h2>Sintomas Gastrointestinais</h2>
+                </div>
+                <div class="step-desc">
+                    Marque se você sentiu algum destes sintomas digestivos.
+                </div>
+                <div class="symptoms-list"></div>
+            </section>
+
+            <!-- Sintomas Urinário/Sexual -->
+            <section class="msas-step hidden" data-step="2">
+                <div class="step-title">
+                    <i class="fi fi-rr-mars-and-venus-burst grupo-icone"></i>
+                    <h2>Sintomas Urinários e Sexuais</h2>
+                </div>
+                <div class="step-desc">
+                    Marque se você percebeu algum destes sintomas urinários/intimidade sexual.
+                </div>
+                <div class="symptoms-list"></div>
+            </section>
+
+            <!-- Sintomas Neurológicos -->
+            <section class="msas-step hidden" data-step="3">
+                <div class="step-title">
+                    <i class="fi fi-rr-mars-and-venus-burst grupo-icone"></i>
+                    <h2>Sintomas Neurológicos</h2>
+                </div>
+                <div class="step-desc">
+                    Marque se você percebeu algum destes sintomas neurológicos.
+                </div>
+                <div class="symptoms-list"></div>
+            </section>
+
+            <!-- Sintomas Dermatológicos -->
+            <section class="msas-step hidden" data-step="4">
+                <div class="step-title">
+                    <i class="fi fi-rr-allergy grupo-icone"></i>
+                    <h2>Sintomas Dermatológicos</h2>
+                </div>
+                <div class="step-desc">
+                    Marque se você notou sintomas na pele/cabelos.
+                </div>
+                <div class="symptoms-list"></div>
+            </section>
+
+            <!-- Sintomas Emocionais/Psicológicos -->
+            <section class="msas-step hidden" data-step="5">
+                <div class="step-title">
+                    <i class="fi fi-rr-hands-brain grupo-icone"></i>
+                    <h2>Sintomas Emocionais/Psicológicos</h2>
+                </div>
+                <div class="step-desc">
+                    Marque se você sentiu sintomas emocionais ou psicológicos recentemente.
+                </div>
+                <div class="symptoms-list"></div>
+            </section>
+
+            <!-- Outros Sintomas -->
+            <section class="msas-step hidden" data-step="6">
+                <div class="step-title">
+                    <i class="fi fi-rr-treatment grupo-icone"></i>
+                    <h2>Outros Sintomas</h2>
+                </div>
+                <div class="step-desc">
+                    Se sentiu outros sintomas importantes nesta semana, descreva abaixo e diga quanto te incomodaram.
+                </div>
+                <div class="outros-sintomas-box">
+                    <input type="text" name="outro_nome" placeholder="Descreva outro sintoma" id="outro_nome">
+                    <div class="inc-label">Nível de incômodo:</div>
+                    <div class="inc-faces" id="outro_incomodo">
+                        <!-- Faces geradas via JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- NAVIGATION -->
+            <div class="nav-controls">
+                <button id="prev-step" type="button">Anterior</button>
+                <button id="next-step" type="button">Próxima</button>
+                <button id="finish-btn" class="hidden" type="submit">Ver Resultado</button>
+            </div>
+        </form>
+
+        <!-- Tela de Resultados -->
+        <section id="result-screen" class="hidden">
+            <div class="result-title">
+                <h2>Resultados da Avaliação</h2>
+            </div>
+            <div id="result-content"></div>
+            <button id="start-again-btn" type="button">Nova avaliação</button>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
